@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:src="@drawable/arrow_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/scroll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                app:layout_constraintBottom_toTopOf="@+id/OTP_not_recieved"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/back"
+                app:layout_constraintTop_toBottomOf="@+id/back">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/otp_varification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/outfit_regular"
+                        android:text="OTP Verification"
+                        android:textColor="#212121"
+                        android:textSize="30sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/enter_the_4_digit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/outfit_regular"
+                        android:gravity="center"
+                        android:text="Enter the 4-digit OTP\nsend to"
+                        android:textColor="#6D6A6A"
+                        android:textSize="18dp"
+                        app:layout_constraintBottom_toTopOf="@+id/mobile_number"
+                        app:layout_constraintEnd_toEndOf="@+id/otp_varification"
+                        app:layout_constraintStart_toStartOf="@+id/otp_varification"
+                        app:layout_constraintTop_toBottomOf="@+id/otp_varification" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/mobile_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/outfit_regular"
+                        android:text="+91843319775"
+                        android:textColor="#212121"
+                        android:textSize="20dp"
+                        app:layout_constraintEnd_toEndOf="@+id/enter_the_4_digit"
+                        app:layout_constraintStart_toStartOf="@+id/enter_the_4_digit"
+                        app:layout_constraintTop_toBottomOf="@+id/enter_the_4_digit" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/otp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp"
+                        app:cardCornerRadius="20dp"
+                        app:cardElevation="5dp"
+                        app:layout_constraintBottom_toTopOf="@+id/next_btn"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mobile_number">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="20dp">
+
+
+                            <com.chaos.view.PinView
+                                android:id="@+id/otp_pin"
+                                style="@style/PinWidget.PinView"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:cursorVisible="true"
+                                android:inputType="number"
+                                android:textColor="#87CFD6"
+                                app:cursorWidth="2dp"
+                                app:hideLineWhenFilled="false"
+                                app:itemCount="4"
+                                app:itemHeight="46dp"
+                                app:itemRadius="8dp"
+                                app:itemSpacing="10dp"
+                                app:itemWidth="57dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:lineWidth="2dp" />
+
+
+                            <!--  <androidx.appcompat.widget.AppCompatEditText
+                                  android:id="@+id/box1"
+                                  android:layout_width="57dp"
+                                  android:layout_height="46dp"
+                                  android:background="@drawable/backgroundbox"
+                                  android:fontFamily="@font/outfit_semibold"
+                                  android:textColor="#818181"
+                                  android:maxLength="1"
+                                  android:inputType="number"
+                                  android:gravity="center"
+                                  app:layout_constraintStart_toStartOf="parent"
+                                  app:layout_constraintTop_toTopOf="parent" />
+
+                              <androidx.appcompat.widget.AppCompatEditText
+                                  android:id="@+id/box2"
+                                  android:layout_width="57dp"
+                                  android:layout_height="46dp"
+                                  android:background="@drawable/backgroundbox"
+                                  android:fontFamily="@font/outfit_semibold"
+                                  android:textColor="#818181"
+                                  android:gravity="center"
+                                  android:maxLength="1"
+                                  android:inputType="number"
+                                  app:layout_constraintBottom_toBottomOf="@+id/box1"
+                                  app:layout_constraintEnd_toStartOf="@+id/box3"
+                                  app:layout_constraintStart_toEndOf="@id/box1"
+                                  app:layout_constraintTop_toTopOf="@+id/box1" />
+
+                              <androidx.appcompat.widget.AppCompatEditText
+                                  android:id="@+id/box3"
+                                  android:layout_width="57dp"
+                                  android:layout_height="46dp"
+                                  android:background="@drawable/backgroundbox"
+                                  android:gravity="center"
+                                  android:maxLength="1"
+                                  android:inputType="number"
+                                  app:layout_constraintBottom_toBottomOf="@+id/box2"
+                                  app:layout_constraintEnd_toStartOf="@+id/box4"
+                                  app:layout_constraintStart_toEndOf="@id/box2"
+                                  app:layout_constraintTop_toTopOf="@+id/box2" />
+
+                              <androidx.appcompat.widget.AppCompatEditText
+                                  android:id="@+id/box4"
+                                  android:layout_width="57dp"
+                                  android:layout_height="46dp"
+                                  android:background="@drawable/backgroundbox"
+                                  android:fontFamily="@font/outfit_semibold"
+                                  android:textColor="#818181"
+                                  android:gravity="center"
+                                  android:maxLength="1"
+                                  android:inputType="number"
+                                  app:layout_constraintBottom_toBottomOf="@+id/box3"
+                                  app:layout_constraintEnd_toEndOf="parent"
+                                  app:layout_constraintTop_toTopOf="@+id/box3" />-->
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/next_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="50dp"
+                        android:layout_marginTop="15dp"
+                        android:backgroundTint="#87CFD6"
+                        android:fontFamily="@font/poppins_medium"
+                        android:paddingVertical="15dp"
+                        android:text="Next"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        app:cornerRadius="30dp"
+                        app:layout_constraintEnd_toEndOf="@+id/otp"
+                        app:layout_constraintStart_toStartOf="@+id/otp"
+                        app:layout_constraintTop_toBottomOf="@+id/otp" />
+
+                    <FrameLayout
+                        android:id="@+id/container2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        tools:context=".fragment.OtpFragment" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/OTP_not_recieved"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="OTP not recieved?"
+                android:textSize="12dp"
+                app:layout_constraintEnd_toEndOf="@+id/scroll"
+                app:layout_constraintStart_toStartOf="@+id/scroll"
+                app:layout_constraintTop_toBottomOf="@+id/scroll" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/Resend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/outfit_regular"
+                android:text="Resend"
+                android:textColor="#87CFD6"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/OTP_not_recieved"
+                app:layout_constraintStart_toStartOf="@+id/OTP_not_recieved"
+                app:layout_constraintTop_toBottomOf="@+id/OTP_not_recieved" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/or_continue_with"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="40dp"
+                android:layout_marginTop="18dp"
+                android:fontFamily="@font/roboto"
+                android:text="or continue with"
+                android:textColor="#212121"
+                app:fontFamily="@font/roboto"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Resend" />
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="95dp"
+                android:layout_height="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/line"
+                app:layout_constraintBottom_toBottomOf="@+id/or_continue_with"
+                app:layout_constraintEnd_toStartOf="@+id/or_continue_with"
+                app:layout_constraintTop_toTopOf="@+id/or_continue_with" />
+
+            <View
+                android:id="@+id/line2"
+                android:layout_width="95dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/line"
+                app:layout_constraintBottom_toBottomOf="@+id/or_continue_with"
+                app:layout_constraintStart_toEndOf="@+id/or_continue_with"
+                app:layout_constraintTop_toTopOf="@+id/or_continue_with" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fb_card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:padding="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/Already"
+                app:layout_constraintEnd_toEndOf="@+id/line2"
+                app:layout_constraintStart_toStartOf="@+id/line1"
+                app:layout_constraintTop_toBottomOf="@+id/line1">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/fb_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="#C5C5C5"
+                    app:strokeWidth="1dp">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/fb"
+                            android:layout_width="35dp"
+                            android:layout_height="30dp"
+                            android:layout_gravity="center"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/facebook_1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/google_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/fb_icon"
+                    app:layout_constraintEnd_toStartOf="@+id/twitter_icon"
+                    app:layout_constraintStart_toEndOf="@+id/fb_icon"
+                    app:layout_constraintTop_toTopOf="@+id/fb_icon"
+                    app:strokeColor="#C5C5C5"
+                    app:strokeWidth="1dp">
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp">
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/google"
+                            android:layout_width="35dp"
+                            android:layout_height="30dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/google_1"
+
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/twitter_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rectangle"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/google_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/google_icon"
+                    app:strokeColor="#C5C5C5"
+                    app:strokeWidth="1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="10dp">
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/twitter"
+                            android:layout_width="35dp"
+                            android:layout_height="30dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/vector"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/Already"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/already_have_Account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto"
+                    android:text="Already have an account?"
+                    android:textColor="#212121"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="Sign in"
+                    android:textColor="#87CFD6"
+                    app:layout_constraintBottom_toBottomOf="@+id/already_have_Account"
+                    app:layout_constraintStart_toEndOf="@+id/already_have_Account"
+                    app:layout_constraintTop_toTopOf="@+id/already_have_Account" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

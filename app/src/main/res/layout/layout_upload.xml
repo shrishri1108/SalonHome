@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <androidx.cardview.widget.CardView android:layout_width="match_parent"
+        android:layout_height="150dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        app:cardCornerRadius="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_waitingtime">
+
+
+
+            <TextView
+                android:id="@+id/tv_text_"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:gravity="center"
+                android:text="Do you want to upload image ?"
+                android:textColor="@color/black"
+                android:textSize="18sp">
+
+            </TextView>
+
+
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:weightSum="3"
+                android:layout_marginTop="40dp"
+                android:layout_marginLeft="20dp"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bg_waitingtime">
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="14sp"
+                    android:text="Cancel"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/call_request_bg"
+                    android:layout_marginBottom="20dp"
+
+
+
+                    ></Button>
+
+                <Button
+                    android:id="@+id/btn_image"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:textColor="@color/white"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="14sp"
+                    android:text="Image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@drawable/round_yellow_shape1"
+                    android:layout_marginBottom="20dp"
+
+
+
+                    ></Button>
+
+
+<!--                <Button-->
+<!--                    android:id="@+id/btn_pdf"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_weight="1"-->
+<!--                    android:layout_height="40dp"-->
+<!--                    android:textColor="@color/white"-->
+<!--                    android:layout_alignParentBottom="true"-->
+<!--                    android:textSize="14sp"-->
+<!--                    android:text="PDF"-->
+<!--                    android:layout_centerHorizontal="true"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:layout_marginRight="5dp"-->
+<!--                    android:background="@drawable/round_yellow_shape1"-->
+<!--                    android:backgroundTint="#009688"-->
+<!--                    android:layout_marginBottom="20dp"-->
+
+<!--                    />-->
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>

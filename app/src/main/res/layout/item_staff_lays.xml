@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="9dp"
+    android:elevation="9dp"
+    android:layout_height="match_parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="3dp"
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/staff_image"
+            app:layout_constraintTop_toTopOf="parent"
+            android:columnWidth="100dp"
+            android:drawSelectorOnTop="true"
+            android:gravity="center"
+            android:numColumns="auto_fit"
+            android:stretchMode="columnWidth"
+            android:verticalSpacing="5dp"
+            android:focusable="true"
+            android:clickable="true"
+            android:src="@mipmap/ic_launcher"
+            android:scaleType="fitCenter"
+            android:layout_margin="17dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="10dp"
+            android:id="@+id/staff_name"
+            android:textSize="23sp"
+            android:text="staff name"
+            app:layout_constraintTop_toBottomOf="@id/staff_image"
+            android:fontFamily="@font/poppins_medium"
+            android:textAlignment="center"
+            android:padding="10dp"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
