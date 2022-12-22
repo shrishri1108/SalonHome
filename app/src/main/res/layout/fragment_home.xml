@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+    </data>
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/card_corner"
+        android:fitsSystemWindows="true"
+        android:visibility="visible"
+        tools:openDrawer="start">
+
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".fragment.HomeFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFFFFF"
+                android:padding="15dp">
+
+
+<!--                <com.google.android.material.appbar.AppBarLayout-->
+<!--                    android:id="@+id/toolbar"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:background="#FFFFFF"-->
+<!--                    android:visibility="visible"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/menu"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/menu"
+                            android:padding="15dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/salon_home"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/salon_home" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/salon_home"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cinzel_decorative_bold"
+                            android:text="SALON HOME"
+                            android:textSize="22sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/wallet"
+                            app:layout_constraintStart_toEndOf="@+id/menu"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/wallet"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/account_balance_wallet"
+                            app:layout_constraintBottom_toBottomOf="@+id/salon_home"
+                            app:layout_constraintEnd_toStartOf="@+id/notification"
+                            app:layout_constraintStart_toEndOf="@+id/salon_home"
+                            app:layout_constraintTop_toTopOf="@+id/salon_home" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/notification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/notifications_none"
+                            app:layout_constraintBottom_toBottomOf="@+id/wallet"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/wallet" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--                </com.google.android.material.appbar.AppBarLayout>-->
+
+
+
+
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    app:sliderAnimationDuration="600"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:layout_constraintEnd_toEndOf="@+id/toolbar"
+                    app:layout_constraintStart_toStartOf="@+id/toolbar"
+                    app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                    app:sliderAutoCycleDirection="back_and_forth"
+                    app:sliderAutoCycleEnabled="true"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorMargin="15dp"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+
+                    app:sliderStartAutoCycle="true" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Manage_Services"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Manage Services"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/imageSlider"
+                    app:layout_constraintTop_toBottomOf="@+id/imageSlider" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/see_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="See All"
+                    android:textColor="#296064"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/Manage_Services"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/Manage_Services" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_manage_services"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="8dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@+id/see_All"
+                    app:layout_constraintStart_toStartOf="@+id/Manage_Services"
+                    app:layout_constraintTop_toBottomOf="@+id/Manage_Services"
+                    tools:listitem="@layout/manage_services_items" />
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#EBEBEB"
+                    app:layout_constraintEnd_toEndOf="@+id/recycler_manage_services"
+                    app:layout_constraintStart_toStartOf="@+id/recycler_manage_services"
+                    app:layout_constraintTop_toBottomOf="@+id/recycler_manage_services" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Appointment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Appointment"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/Manage_Services"
+                    app:layout_constraintTop_toBottomOf="@+id/line" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/appointment_see_All"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="see All"
+                    app:layout_constraintBottom_toBottomOf="@+id/Appointment"
+                    app:layout_constraintEnd_toEndOf="@+id/see_All"
+                    app:layout_constraintStart_toStartOf="@+id/see_All"
+                    app:layout_constraintTop_toBottomOf="@+id/line"
+                    app:layout_constraintTop_toTopOf="@+id/Appointment" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/appointment_recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintEnd_toEndOf="@+id/appointment_see_All"
+                    app:layout_constraintStart_toStartOf="@+id/Appointment"
+                    app:layout_constraintTop_toBottomOf="@+id/Appointment"
+                    tools:listitem="@layout/appointment_recyclerview_item" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/top_services"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Top Services"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/appointment_recyclerView"
+                    app:layout_constraintTop_toBottomOf="@+id/appointment_recyclerView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/see_All3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="See All"
+                    app:layout_constraintBottom_toBottomOf="@+id/top_services"
+                    app:layout_constraintEnd_toEndOf="@+id/see_All"
+                    app:layout_constraintTop_toBottomOf="@+id/appointment_recyclerView"
+                    app:layout_constraintTop_toTopOf="@+id/top_services" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/top_services_recycler"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@+id/see_All3"
+                    app:layout_constraintStart_toStartOf="@+id/top_services"
+                    app:layout_constraintTop_toBottomOf="@+id/top_services"
+                    tools:listitem="@layout/top_services_item" />
+
+
+
+
+
+
+
+
+                  <!--  <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/logout"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="bottom"
+                        android:text="Logout" />-->
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/Revenue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Revenue"
+                    android:layout_marginTop="20dp"
+                    android:textSize="20sp"
+                    android:textColor="#000000"
+                    android:fontFamily="@font/poppins"
+                    app:layout_constraintTop_toBottomOf="@+id/top_services_recycler"
+                    app:layout_constraintStart_toStartOf="@+id/top_services_recycler"/>
+
+<!--                <com.jjoe64.graphview.GraphView-->
+<!--                    android:id="@+id/idGraphView"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/Revenue"-->
+<!--                    app:layout_constraintStart_toStartOf="@+id/Revenue"-->
+<!--                    app:layout_constraintEnd_toEndOf="@id/Revenue"/>-->
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+    </FrameLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/negivation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            android:visibility="gone"
+            android:background="@drawable/card_corner"
+            app:headerLayout="@layout/drawer_item_layout"
+            app:menu="@menu/drawer_menu"
+        />
+
+
+
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

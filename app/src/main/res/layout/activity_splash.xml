@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash"
+        android:padding="10dp"
+        android:adjustViewBounds="true"
+        tools:context=".activity.SplashActivity">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/discription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:fontFamily="@font/inter"
+            android:gravity="center"
+            android:text="The Best barber &amp; Salon app in this\ncentury for your good looks and beauty"
+            android:textColor="#FFFFFF"
+            android:textSize="17sp"
+            app:fontFamily="@font/inter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/welcome_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            app:layout_constraintBottom_toTopOf="@+id/discription"
+            app:layout_constraintEnd_toEndOf="@+id/discription"
+            app:layout_constraintStart_toStartOf="@+id/discription">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/welcome_to"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome to"
+                android:textColor="#FFFFFF"
+                android:textSize="45sp"
+                app:fontFamily="@font/roboto_medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/salon_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SALON HOME"
+                android:textColor="#FFFFFF"
+                android:textSize="45dp"
+                app:fontFamily="@font/cinzel_decorative_bold"
+                app:layout_constraintEnd_toEndOf="@+id/welcome_to"
+                app:layout_constraintStart_toStartOf="@+id/welcome_to"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_to" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
