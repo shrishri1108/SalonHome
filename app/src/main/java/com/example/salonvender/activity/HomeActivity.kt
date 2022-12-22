@@ -29,6 +29,14 @@ class HomeActivity : AppCompatActivity() {
 
        this.startActivity(Intent(this@HomeActivity, Add_Services::class.java))
 
+        val fragment = Create_your_Account()
+
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.container, fragment).commit()
+        }
+
+//       this.startActivity(Intent(this@HomeActivity, Create_your_Account::class.java))
+
     }
 }
 

@@ -7,6 +7,7 @@ import com.example.salonvender.Data_Class.Fill_Profile
 import com.example.salonvender.Data_Class.LoginOtpData_class
 import com.example.salonvender.model.LoginAccountData
 import okhttp3.MultipartBody
+
 import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.Response
@@ -145,7 +146,6 @@ object LoginAccountRepository {
         @Part("ifsc_code") ifsc_code: RequestBody): MutableLiveData<Fill_Profile> {
 //        val call = RestClient.inst.mRestService!!.uploadToApi(email,name,phone,gender,dob,vendor_type,bank_name,check_image,location, user_image, id_proof_image, account_holder_name, licence_image, account_no, service_for, ifsc_code)
         val call = RestClient.inst.mRestService!!.uploadToApi(email,name,phone,gender,dob,vendor_type,bank_name, location,account_holder_name,account_no,service_for,ifsc_code)
-
         call.enqueue(object : retrofit2.Callback<Fill_Profile> {
             override fun onResponse(
                 call: Call<Fill_Profile>,
@@ -157,8 +157,8 @@ object LoginAccountRepository {
 
                 }
                 else {
-
                     Log.d("hit", "mErors :"+ response.errorBody()!!.charStream().readText().toString() )
+                    Log.d("hit", "mErors :" )
                 }
             }
 

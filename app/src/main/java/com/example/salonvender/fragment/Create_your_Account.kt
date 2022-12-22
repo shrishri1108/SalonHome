@@ -31,78 +31,66 @@ class Create_your_Account : Fragment() {
         )
 
         binding.buttonLoginNextBtn.setOnClickListener {
-
-            binding.progressBar.visibility= View.VISIBLE
+            binding.progressBar.visibility = View.VISIBLE
             fun isEmpty(enter: AppCompatEditText): Boolean {
-
+                binding.progressBar.visibility = View.GONE
                 val str: CharSequence = binding.enter.text.toString()
-                binding.progressBar.visibility= View.GONE
                 return TextUtils.isEmpty(str)
-
             }
 
+                if (isEmpty(binding.enter)) {
 
-            if (isEmpty(binding.enter)) {
-
-                Toast.makeText(activity, "please fill mobile number", Toast.LENGTH_SHORT).show()
-                binding.enter.error="please fill mobile number"
-                binding.progressBar.visibility= View.GONE
-            }
-            else {
-
-                if (binding.enter.length() == 10) {
-
-                    viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
-
-
-                    val hashmap = HashMap<String, String>()
-                    hashmap["phone"] = binding.enter.text.toString()
-
-                    viewModel.sendAllOtp(hashmap).observe(viewLifecycleOwner, Observer { it ->
-
-                        if (it.result == "success") {
-
-
-
-                            val otpFragment = OtpFragment()
-                            val bundle = Bundle()
-
-                            bundle.putString("phone", binding.enter.text.toString())
-                            bundle.putString(
-                                "cpp_code",
-                                binding.countryPicker.selectedCountryCodeWithPlus
-                            )
-
-                            otpFragment.arguments = bundle
-
-                            requireActivity().supportFragmentManager.beginTransaction()
-                                .replace(R.id.container, otpFragment).commit()
-
-
-                        }
-                        Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
-
-                    })
-
-
+                    Toast.makeText(activity, "please fill mobile number", Toast.LENGTH_SHORT).show()
+                    binding.enter.error = "please fill mobile number"
+                    binding.progressBar.visibility = View.GONE
                 } else {
 
-                    Toast.makeText(activity, "please enter 10 digit number", Toast.LENGTH_SHORT)
-                        .show()
-                    binding.enter.error = "10 digit number"
+                    if (binding.enter.length() == 10) {
+
+                        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
 
 
+                        val hashmap = HashMap<String, String>()
+                        hashmap["phone"] = binding.enter.text.toString()
+
+                        viewModel.sendAllOtp(hashmap).observe(viewLifecycleOwner, Observer { it ->
+
+                            if (it.result == "success") {
+
+
+                                val otpFragment = OtpFragment()
+                                val bundle = Bundle()
+
+                                bundle.putString("phone", binding.enter.text.toString())
+                                bundle.putString(
+                                    "cpp_code",
+                                    binding.countryPicker.selectedCountryCodeWithPlus
+                                )
+
+                                otpFragment.arguments = bundle
+
+                                requireActivity().supportFragmentManager.beginTransaction()
+                                    .replace(R.id.container, otpFragment).commit()
+
+
+                            }
+                            Toast.makeText(activity, it.message, Toast.LENGTH_SHORT).show()
+                        })
+
+
+                    } else {
+
+                        Toast.makeText(activity, "please enter 10 digit number", Toast.LENGTH_SHORT)
+                            .show()
+                        binding.enter.error = "10 digit number"
+
+
+                    }
+
+                    binding.progressBar.visibility = View.GONE
                 }
-
-                binding.progressBar.visibility = View.GONE
-            }
-
-
+        }
+            return binding.root
         }
 
-
-        return binding.root
     }
-
-
-}

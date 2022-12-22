@@ -2,7 +2,7 @@ package com.example.salonvender.fragment
 
 
 import android.app.Activity
-import android.app.ProgressDialog
+
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
@@ -41,15 +41,17 @@ class OtpFragment : Fragment() {
         binding.mobileNumber.text = cpp_code + phone.toString()
 
         binding.back.setOnClickListener {
-            binding.progressBar.visibility= View.VISIBLE
+         binding.progressBar.visibility= View.VISIBLE
             requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.container, Create_your_Account()).commit()
             binding.progressBar.visibility= View.GONE
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, Create_your_Account()).commit()
         }
 
 
         binding.nextBtn.setOnClickListener {
-
             binding.progressBar.visibility= View.VISIBLE
             fun isEmpty(otppin: AppCompatEditText): Boolean {
 
@@ -60,6 +62,11 @@ class OtpFragment : Fragment() {
 
             if (isEmpty(binding.otpPin)) {
                 binding.progressBar.visibility= View.GONE
+
+            }
+
+            if (isEmpty(binding.otpPin)) {
+
                 Toast.makeText(activity, "Error", Toast.LENGTH_SHORT).show()
                 binding.otpPin.error = "please enter otp"
 
@@ -138,8 +145,14 @@ class OtpFragment : Fragment() {
         }
 
 
+            val create_your_Account = Create_your_Account()
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.container, create_your_Account).commit()
+
+
         return binding.root
+        }
+
+//asjdi
     }
 
-
-}

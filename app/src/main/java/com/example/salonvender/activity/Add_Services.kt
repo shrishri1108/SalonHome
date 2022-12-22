@@ -22,6 +22,7 @@ class Add_Services : AppCompatActivity() {
 //        addServicesBinding.categorySpinner.setAdapter(new ServicesCategoryAdapter(this, categoryList));
 
 
+
 //        addServicesBinding.switchGender.textOn="Female"
 //        addServicesBinding.switchGender.textOff="Male"
 //        addServicesBinding.switchGender.setBackgroundColor(Color.BLUE)
@@ -39,6 +40,7 @@ class Add_Services : AppCompatActivity() {
         }
         addServicesBinding.mrpPrice.paintFlags= View.INVISIBLE
         addServicesBinding.etOfferPrice.paintFlags= View.INVISIBLE
+
         addServicesBinding.categoryCard.setOnClickListener {
 
 
