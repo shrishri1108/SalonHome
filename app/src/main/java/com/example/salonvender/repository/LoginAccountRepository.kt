@@ -158,12 +158,11 @@ object LoginAccountRepository {
                 }
                 else {
                     Log.d("hit", "mErors :"+ response.errorBody()!!.charStream().readText().toString() )
-                    Log.d("hit", "mErors :" )
                 }
             }
 
             override fun onFailure(call: Call<Fill_Profile>, t: Throwable) {
-                Log.d("hit", "LoginAccountRepository: "+t.toString())
+                Log.d("hit", " onFailures: "+t.toString())
             }
         })
         return upload

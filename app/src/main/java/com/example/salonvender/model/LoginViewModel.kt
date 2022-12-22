@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.example.salonvender.Data_Class.Fill_Profile
 import com.example.salonvender.Data_Class.LoginOtpData_class
 import com.example.salonvender.LoginAccountRepository
-import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import retrofit2.http.Part
 

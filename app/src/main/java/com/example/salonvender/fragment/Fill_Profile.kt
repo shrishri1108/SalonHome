@@ -106,7 +106,7 @@ class Fill_Profile : Fragment() {
         }
 
 
-        Log.d("token", PrefManager.getInstance(App.getInstance())!!.userDetail.token)
+//        Log.d("token", PrefManager.getInstance(App.getInstance())!!.userDetail.token)
 
 
         binding.genderCard.setOnClickListener {
@@ -116,7 +116,7 @@ class Fill_Profile : Fragment() {
                 binding.genderItemCard.visibility = View.GONE
 
                 binding.male.setOnClickListener {
-                    binding.Gender.text = binding.male.text.toString().lowercase()
+                    binding.Gender.text = binding.male.text.toString()
                     if (binding.genderItemCard.visibility == View.VISIBLE) {
                         binding.genderItemCard.visibility = View.GONE
                     }
@@ -124,7 +124,7 @@ class Fill_Profile : Fragment() {
                 }
 
                 binding.female.setOnClickListener {
-                    binding.Gender.text = binding.female.text.toString().lowercase()
+                    binding.Gender.text = binding.female.text.toString()
                     if (binding.genderItemCard.visibility == View.VISIBLE) {
                         binding.genderItemCard.visibility = View.GONE
                     }
@@ -134,7 +134,7 @@ class Fill_Profile : Fragment() {
             } else {
                 binding.genderItemCard.visibility = View.VISIBLE
                 binding.male.setOnClickListener {
-                    binding.Gender.text = binding.male.text.toString().lowercase()
+                    binding.Gender.text = binding.male.text.toString()
                     if (binding.genderItemCard.visibility == View.VISIBLE) {
                         binding.genderItemCard.visibility = View.GONE
                     }
@@ -142,7 +142,7 @@ class Fill_Profile : Fragment() {
                 }
 
                 binding.female.setOnClickListener {
-                    binding.Gender.text = binding.female.text.toString().lowercase()
+                    binding.Gender.text = binding.female.text.toString()
                     if (binding.genderItemCard.visibility == View.VISIBLE) {
                         binding.genderItemCard.visibility = View.GONE
                     }
@@ -154,17 +154,45 @@ class Fill_Profile : Fragment() {
 
         }
 
-        binding.profileImage.setOnClickListener {
+        binding.profileImg.setOnClickListener {
 
-/*            PROFILE_IMG_UPLOAD_REQ_CODE = 1;
-            ImagePicker.with(this)
+            PROFILE_IMG_UPLOAD_REQ_CODE = 1;
+            ImagePicker.with(this@Fill_Profile)
                 .crop()                    //Crop image(Optional), Check Customization for more option
                 .compress(1024)            //Final image size will be less than 1 MB(Optional)
                 .maxResultSize(
                     1080,
                     1080
                 )    //Final image resolution will be less than 1080 x 1080(Optional)
-//                .start()*/
+                .start()
+//           val gallery =
+//                Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+//            startActivityForResult(gallery, 2)
+//             val cropImage = registerForActivityResult(CropImageContract()) { result ->
+//                if (result.isSuccessful) {
+//                    // Use the returned uri.
+//                    val uriContent = result.uriContent
+//                    val uriFilePath = result.getUriFilePath(requireContext()) // optional usage
+//                    Prof_IMG_FILE= File(uriFilePath.toString())
+//                } else {
+//                    // An error occurred.
+//                    val exception = result.error
+//                }
+//            }
+//            Prof_IMG_FILE= File(cropImage)
+        }
+
+        binding.editProfileBtn.setOnClickListener {
+
+            PROFILE_IMG_UPLOAD_REQ_CODE = 1;
+            ImagePicker.with(this@Fill_Profile)
+                .crop()                    //Crop image(Optional), Check Customization for more option
+                .compress(1024)            //Final image size will be less than 1 MB(Optional)
+                .maxResultSize(
+                    1080,
+                    1080
+                )   //Final image resolution will be less than 1080 x 1080(Optional)
+                .start()
 //           val gallery =
 //                Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
 //            startActivityForResult(gallery, 2)
@@ -228,7 +256,7 @@ class Fill_Profile : Fragment() {
                 binding.salonCardItem.visibility = View.GONE
 
                 binding.salon.setOnClickListener {
-                    binding.salonMain.text = binding.salon.text.toString().lowercase()
+                    binding.salonMain.text = binding.salon.text.toString()
                     if (binding.salonCardItem.visibility == View.VISIBLE) {
                         binding.salonCardItem.visibility = View.GONE
 
@@ -243,7 +271,7 @@ class Fill_Profile : Fragment() {
                 }
 
                 binding.freeLancher.setOnClickListener {
-                    binding.salonMain.text = binding.freeLancher.text.toString().lowercase()
+                    binding.salonMain.text = binding.freeLancher.text.toString()
                     if (binding.salonCardItem.visibility == View.VISIBLE) {
                         binding.salonCardItem.visibility = View.GONE
 
@@ -260,7 +288,7 @@ class Fill_Profile : Fragment() {
             } else {
                 binding.salonCardItem.visibility = View.VISIBLE
                 binding.salon.setOnClickListener {
-                    binding.salonMain.text = binding.salon.text.toString().lowercase()
+                    binding.salonMain.text = binding.salon.text.toString()
                     if (binding.salonCardItem.visibility == View.VISIBLE) {
                         binding.salonCardItem.visibility = View.GONE
 
@@ -273,20 +301,35 @@ class Fill_Profile : Fragment() {
 
                 }
                 binding.freeLancher.setOnClickListener {
-                    binding.salonMain.text = binding.freeLancher.text.toString().lowercase()
+                    binding.salonMain.text = binding.freeLancher.text.toString()
                     if (binding.salonCardItem.visibility == View.VISIBLE) {
                         binding.salonCardItem.visibility = View.GONE
 
 //                        if (binding.salon == binding.FREEESTILO) {
-                        binding.shopNameCard.visibility = View.GONE
 //                            binding.locationCard.visibility = View.GONE
 //                        }
-                        binding.shopNameCard.visibility = View.GONE
                     }
+                    binding.shopNameCard.visibility = View.GONE
 
                 }
             }
+        }
 
+        binding.cancelCheck.setOnClickListener {
+            is_Cancel_checkDialog_Active = true
+//            ID_REQ_CODE = 3
+//            AlertDialogInActive()
+//            //                                             File image=
+//            //                                             CropImage.activity(null).setGuidelines(CropImageView.Guidelines.ON).start(ReportDetailsActivity.this);
+            ImagePicker.with(this@Fill_Profile)
+                .crop() //Crop image(Optional), Check Customization for more option
+                .compress(1024) //Final image size will be less than 1 MB(Optional)
+                .maxResultSize(
+                    1080,
+                    1080
+                ) //Final image resolution will be less than 1080 x 1080(Optional)
+                .start()
+        }
 //            if(binding.salon==binding.FREEESTILO){
 //
 //                binding.shopNameCard.visibility = View.GONE
@@ -294,91 +337,76 @@ class Fill_Profile : Fragment() {
 //
 //            }
 
-            binding.GenderCustomerCard.setOnClickListener {
+        binding.GenderCustomerCard.setOnClickListener {
 
 
-                if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
-                    binding.genderCustomerItemCard.visibility = View.GONE
+            if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
+                binding.genderCustomerItemCard.visibility = View.GONE
 
-                    binding.customerMale.setOnClickListener {
-                        binding.GenderCustomer.text =
-                            binding.customerMale.text.toString().lowercase()
-                        if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
-                            binding.genderCustomerItemCard.visibility = View.GONE
-                        }
-
+                binding.customerMale.setOnClickListener {
+                    binding.GenderCustomer.text =
+                        binding.customerMale.text.toString()
+                    if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
+                        binding.genderCustomerItemCard.visibility = View.GONE
                     }
 
-                    binding.customerFemale.setOnClickListener {
-                        binding.GenderCustomer.text =
-                            binding.customerFemale.text.toString().lowercase()
-                        if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
-                            binding.genderCustomerItemCard.visibility = View.GONE
-                        }
+                }
+
+                binding.customerFemale.setOnClickListener {
+                    binding.GenderCustomer.text =
+                        binding.customerFemale.text.toString()
+                    if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
+                        binding.genderCustomerItemCard.visibility = View.GONE
+                    }
+                }
+
+                binding.transGender.setOnClickListener {
+                    binding.GenderCustomer.text =
+                        binding.transGender.text.toString()
+                    if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
+                        binding.genderCustomerItemCard.visibility = View.GONE
+                    }
+                }
+
+
+            } else {
+                binding.genderCustomerItemCard.visibility = View.VISIBLE
+                binding.customerMale.setOnClickListener {
+                    binding.GenderCustomer.text =
+                        binding.customerMale.text.toString()
+                    if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
+                        binding.genderCustomerItemCard.visibility = View.GONE
                     }
 
-                    binding.transGender.setOnClickListener {
-                        binding.GenderCustomer.text =
-                            binding.transGender.text.toString().lowercase()
-                        if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
-                            binding.genderCustomerItemCard.visibility = View.GONE
-                        }
+                }
+
+                binding.customerFemale.setOnClickListener {
+                    binding.GenderCustomer.text =
+                        binding.customerFemale.text.toString()
+                    if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
+                        binding.genderCustomerItemCard.visibility = View.GONE
                     }
+                }
 
-
-                } else {
-                    binding.genderCustomerItemCard.visibility = View.VISIBLE
-                    binding.customerMale.setOnClickListener {
-                        binding.GenderCustomer.text =
-                            binding.customerMale.text.toString().lowercase()
-                        if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
-                            binding.genderCustomerItemCard.visibility = View.GONE
-                        }
-
+                binding.transGender.setOnClickListener {
+                    binding.GenderCustomer.text =
+                        binding.transGender.text.toString()
+                    if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
+                        binding.genderCustomerItemCard.visibility = View.GONE
                     }
-
-                    binding.customerFemale.setOnClickListener {
-                        binding.GenderCustomer.text =
-                            binding.customerFemale.text.toString().lowercase()
-                        if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
-                            binding.genderCustomerItemCard.visibility = View.GONE
-                        }
-                    }
-
-                    binding.transGender.setOnClickListener {
-                        binding.GenderCustomer.text =
-                            binding.transGender.text.toString().lowercase()
-                        if (binding.genderCustomerItemCard.visibility == View.VISIBLE) {
-                            binding.genderCustomerItemCard.visibility = View.GONE
-                        }
-                    }
-
-
                 }
 
 
             }
 
 
-//        binding.FREEESTILO.setOnClickListener {
-//
-//            if (binding.salon == binding.FREEESTILO) {
-//                binding.shopNameCard.visibility = View.GONE
-//                binding.locationCard.visibility = View.GONE
-//            }
-//        }
+        }
 
 
-//        if(binding.salon==binding.FREEESTILO){
-//
-//            binding.shopNameCard.visibility = View.GONE
-//            binding.locationCard.visibility=View.GONE
-//
-//        }
 
-            binding.submit.setOnClickListener {
+        binding.submit.setOnClickListener {
 
-                binding.progressBar.visibility = View.VISIBLE
+            binding.progressBar.visibility = View.VISIBLE
 //            if (isEmpty()) {
 //
 //                Toast.makeText(activity, "please fill mobile number", Toast.LENGTH_SHORT).show()
@@ -390,94 +418,70 @@ class Fill_Profile : Fragment() {
 //
 //            }
 
-                if (isEmpty(binding.name)) {
+            if (isEmpty(binding.name)) {
 
-                    binding.name.error = "Please fill name"
-                    binding.progressBar.visibility = View.GONE
-                }
+                binding.name.error = "Please fill name"
+                binding.name.requestFocus()
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty2(binding.dob)) {
+                binding.dob.error = "Please fill dob"
+                binding.progressBar.visibility = View.GONE
+                binding.dob.requestFocus()
 
-                if (isEmpty2(binding.dob)) {
-                    binding.dob.error = "Please fill dob"
-                    binding.progressBar.visibility = View.GONE
+            } else if (isEmpty2(binding.Gender)) {
 
+                binding.Gender.error = "Please select Gender"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty2(binding.salon)) {
+                binding.salon.error = "Please select Vendor Type"
+                binding.name.requestFocus()
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty(binding.shopName)) {
 
-                }
+                binding.shopName.error = "Please fill shop name"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty(binding.email)) {
 
-                if (isEmpty2(binding.Gender)) {
+                binding.email.error = "Select your email id"
+                binding.progressBar.visibility = View.GONE
+            } else if (!isEmpty(binding.email)) {
 
-                    binding.Gender.error = "Please select Gender"
-                    binding.progressBar.visibility = View.GONE
-                }
+                pattern = Pattern.compile(EMAIL_PATTERN);
+                matcher = pattern.matcher(binding.email.toString());
+                binding.progressBar.visibility = View.GONE
 
-                if (isEmpty2(binding.salon)) {
-                    binding.salon.error = "Please select Vendor Type"
-                    binding.name.requestFocus()
-                    binding.progressBar.visibility = View.GONE
-                }
+            } else if (isEmpty(binding.location)) {
 
-                if (isEmpty(binding.shopName)) {
+                binding.location.error = "Please fill location"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty2(binding.UploadIDProof)) {
 
-                    binding.shopName.error = "Please fill shop name"
-                    binding.progressBar.visibility = View.GONE
-                }
+                binding.UploadIDProof.error = "Please select id proof"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty2(binding.UploadLicense)) {
+                binding.UploadLicense.error = "Please select License"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty(binding.BankName)) {
 
+                binding.BankName.error = "Please enter the Bank Name"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty(binding.AccountHolderName)) {
 
-                if (isEmpty(binding.email)) {
+                binding.AccountHolderName.error = "Please enter Account Holder Name"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty(binding.AccountNo)) {
 
-                    binding.email.error = "Select your email id"
-                    binding.progressBar.visibility = View.GONE
-                } else {
+                binding.AccountNo.error = "Enter Account no"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty(binding.ifscCode)) {
 
-                    pattern = Pattern.compile(EMAIL_PATTERN);
-                    matcher = pattern.matcher(binding.email.toString());
-                    binding.progressBar.visibility = View.GONE
+                binding.ifscCode.error = "Enter ifsc code"
+                binding.progressBar.visibility = View.GONE
+            } else if (isEmpty2(binding.GenderCustomer)) {
 
-                }
-
-                if (isEmpty(binding.location)) {
-
-                    binding.location.error = "Please fill location"
-                    binding.progressBar.visibility = View.GONE
-                }
-
-                if (isEmpty2(binding.UploadIDProof)) {
-
-                    binding.UploadIDProof.error = "Please select id proof"
-                    binding.progressBar.visibility = View.GONE
-                }
-
-                if (isEmpty2(binding.UploadLicense)) {
-                    binding.UploadLicense.error = "Please select License"
-                    binding.progressBar.visibility = View.GONE
-                }
-
-                if (isEmpty(binding.BankName)) {
-
-                    binding.BankName.error = "Please enter the Bank Name"
-                    binding.progressBar.visibility = View.GONE
-                }
-                if (isEmpty(binding.AccountHolderName)) {
-
-                    binding.AccountHolderName.error = "Please enter Account Holder Name"
-                    binding.progressBar.visibility = View.GONE
-                }
-                if (isEmpty(binding.AccountNo)) {
-
-                    binding.AccountNo.error = "Enter Account no"
-                    binding.progressBar.visibility = View.GONE
-                }
-
-                if (isEmpty(binding.ifscCode)) {
-
-                    binding.ifscCode.error = "Enter ifsc code"
-                    binding.progressBar.visibility = View.GONE
-                }
-
-                if (isEmpty2(binding.GenderCustomer)) {
-
-                    binding.GenderCustomer.error = "Please select customer's gender"
-                    binding.progressBar.visibility = View.GONE
-                }
+                binding.GenderCustomer.error = "Please select customer's gender"
+                binding.progressBar.visibility = View.GONE
+            }
 
 //            if (isEmpty(binding.password)) {
 //
@@ -511,22 +515,22 @@ class Fill_Profile : Fragment() {
 //            }
 
 
-                if (!binding.termAndCondition.isChecked) {
+            else if (!binding.termAndCondition.isChecked) {
 
-                    Toast.makeText(
-                        requireActivity(),
-                        "Please accept terms and conditions ",
-                        Toast.LENGTH_SHORT
-                    ).show()
+                Toast.makeText(
+                    requireActivity(),
+                    "Please accept terms and conditions ",
+                    Toast.LENGTH_SHORT
+                ).show()
 
-                    binding.progressBar.visibility = View.GONE
-                    return@setOnClickListener
-                }
+                binding.progressBar.visibility = View.GONE
+                return@setOnClickListener
+            }
 
-                //            val hashmap = HashMap<String, String>()
+            //            val hashmap = HashMap<String, String>()
 
 
-                // val loginFragment = LoginFragment()
+            // val loginFragment = LoginFragment()
 //
 //                val intent = Intent(activity, HomeActivity::class.java)
 //                        startActivity(intent)
@@ -552,8 +556,8 @@ class Fill_Profile : Fragment() {
 //                Toast.LENGTH_SHORT
 //            ).show()
 
-                fun getRequestBody(str: String?): RequestBody =
-                    str.toString().toRequestBody("text/plain".toMediaTypeOrNull())
+            fun getRequestBody(str: String?): RequestBody =
+                str.toString().toRequestBody("text/plain".toMediaTypeOrNull())
 
 //
 //            var thumbnailBody: RequestBody? = null
@@ -593,103 +597,90 @@ class Fill_Profile : Fragment() {
 //                )
 //            Log.d("token", PrefManager.getInstance(App.getInstance())!!.userDetail.token)
 
-                viewModel.upload(
-                    getRequestBody(binding.email.text.toString()),
-                    getRequestBody(binding.name.text.toString()),
+            viewModel.upload(
+                getRequestBody(binding.email.text.toString()),
+                getRequestBody(binding.name.text.toString()),
 //                getRequestBody("Vndor1"),
-                    getRequestBody(binding.phoneNo.text.toString()),
+                getRequestBody(binding.phoneNo.text.toString()),
 //                getRequestBody("7706064510"),
-                    getRequestBody(binding.Gender.text.toString()),
-                    getRequestBody(binding.dob.text.toString()),
-                    getRequestBody(binding.salonMain.text.toString()),
+                getRequestBody(binding.Gender.text.toString()),
+                getRequestBody(binding.dob.text.toString()),
+                getRequestBody(if(binding.salonMain.text.toString().equals("Door Buddy"))"Freelancer" else "salon"),
 //                getRequestBody("salon"),
-                    getRequestBody(binding.BankName.text.toString()),
+                getRequestBody(binding.BankName.text.toString()),
 //                cancel_check_part_val,
-                    // getRequestBody(Cancel_Check_File?.path.toString()),
-                    getRequestBody(binding.location.text.toString()),
+                // getRequestBody(Cancel_Check_File?.path.toString()),
+                getRequestBody(binding.location.text.toString()),
 //                getRequestBody(Prof_IMG_FILE?.path.toString()),
 //                user_Image_part_val,
 //                ID_Path_part_val,
-                    getRequestBody(binding.AccountHolderName.text.toString()),
-                    // getRequestBody(License_File?.path.toString()),
+                getRequestBody(binding.AccountHolderName.text.toString()),
+                // getRequestBody(License_File?.path.toString()),
 //                Licence_part_val,
-                    getRequestBody(binding.AccountNo.text.toString()),
-                    getRequestBody(binding.GenderCustomer.text.toString()),
+                getRequestBody(binding.AccountNo.text.toString()),
+                getRequestBody(binding.GenderCustomer.text.toString()),
 //                getRequestBody("mens"),
-                    getRequestBody(binding.ifscCode.text.toString())
+                getRequestBody(binding.ifscCode.text.toString())
 
-                ).observe(viewLifecycleOwner, Observer { it ->
+            ).observe(viewLifecycleOwner, Observer { it ->
 
 //                Toast.makeText(requireActivity(), "go go", Toast.LENGTH_SHORT).show()
 //
 //                Toast.makeText(requireContext(), "Go Go GO", Toast.LENGTH_SHORT).show()
 
 
-                    if (it.result == true) {
+                if (it.result == true) {
 
+                    Toast.makeText(
+                        requireActivity(),
+                        "Your details has been submitted. Pending for approval.  ",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    Log.d("apiht", "onCreateView: res")
+                    val intent = Intent(activity, HomeActivity::class.java)
+                    startActivity(intent)
+                    (activity as Activity).overridePendingTransition(0, 0)
+                    binding.progressBar.visibility = View.GONE
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        " " + it.message + " -------> " + it.result,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    Log.d(
+                        "apiht",
+                        "onCreateView:results " + it.message + " -------> " + it.result
+                    )
+                    binding.progressBar.visibility = View.GONE
+                }
 
-                        /*                     val loginFragment = LoginFragment()
-                                         hashmap["device_token"] = "H7IQNtvksdf2t7eDxqdfgfdSKd2Az4zmzaRXwKpqAtWJhLBF"
-                                         hashmap["device_id"] = "dchgsjhkjsb"*/
-
-                        /*          requireActivity().supportFragmentManager.beginTransaction()
-                                  .replace(R.id.container, loginFragment).commit()
-
-
-          */
-                        Toast.makeText(
-                            requireActivity(),
-                            "Your details has been submitted. Pending for approval.  ",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        Log.d("apiht", "onCreateView: res")
-                        val intent = Intent(activity, HomeActivity::class.java)
-                        startActivity(intent)
-                        (activity as Activity).overridePendingTransition(0, 0)
-                        binding.progressBar.visibility = View.GONE
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            " " + it.message + " -------> " + it.result,
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        Log.d(
-                            "apiht",
-                            "onCreateView:results " + it.message + " -------> " + it.result
-                        )
-                        binding.progressBar.visibility = View.GONE
-                    }
-
-                })
-            }
-            binding.dobCard.setOnClickListener {
-                val formatDate = SimpleDateFormat("YYYY/MM/dd", Locale.US)
-                val cal = Calendar.getInstance()
-                val dataPicDialog = DatePickerDialog(
-                    requireContext(),
-                    R.style.DialogTheme,
-                    DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
-                        val selectDate = Calendar.getInstance()
-                        selectDate.set(Calendar.YEAR, i)
-                        selectDate.set(Calendar.MONTH, i2)
-                        selectDate.set(Calendar.DAY_OF_MONTH, i3)
-                        val date = formatDate.format(selectDate.time)
-                        binding.dob.text = date
-                    },
-                    cal[Calendar.YEAR],
-                    cal[Calendar.MONTH],
-                    cal[Calendar.DAY_OF_MONTH]
-                )
-                dataPicDialog.show()
-                dataPicDialog.datePicker.maxDate = cal.timeInMillis
+            })
+        }
+        binding.dobCard.setOnClickListener {
+            val formatDate = SimpleDateFormat("YYYY/MM/dd", Locale.US)
+            val cal = Calendar.getInstance()
+            val dataPicDialog = DatePickerDialog(
+                requireContext(),
+                R.style.DialogTheme,
+                DatePickerDialog.OnDateSetListener { datePicker, i, i2, i3 ->
+                    val selectDate = Calendar.getInstance()
+                    selectDate.set(Calendar.YEAR, i)
+                    selectDate.set(Calendar.MONTH, i2)
+                    selectDate.set(Calendar.DAY_OF_MONTH, i3)
+                    val date = formatDate.format(selectDate.time)
+                    binding.dob.text = date
+                },
+                cal[Calendar.YEAR],
+                cal[Calendar.MONTH],
+                cal[Calendar.DAY_OF_MONTH]
+            )
+            dataPicDialog.show()
+            dataPicDialog.datePicker.maxDate = cal.timeInMillis
 //            dataPicDialog.datePicker.maxDate();
-            }
-
         }
 
         return binding.root
     }
-
 
     private fun getTodaysDate(): String? {
         val cal = Calendar.getInstance()
@@ -796,17 +787,17 @@ class Fill_Profile : Fragment() {
 //                }
 //                Prof_IMG_FILE = File(data?.getData().toString());
 //                if (Prof_IMG_FILE == null)
-                    Prof_IMG_FILE = GetFileFromUriUsingBufferReader().getImageFile(
-                        requireContext().applicationContext,
-                        data?.data
-                    )
+                Prof_IMG_FILE = GetFileFromUriUsingBufferReader().getImageFile(
+                    requireContext().applicationContext,
+                    data?.data
+                )
 //                Prof_IMG_FILE = GetFileFromUriUsingBufferReader().getImageFile(
 //                    requireContext(),
 //                    uri
 //                )
 //                Toast.makeText(context, ""+ Prof_IMG_FILE!!.name +" :-> "+Prof_IMG_FILE!!.path, Toast.LENGTH_SHORT).show()
                 // Use Uri object instead of File to avoid storage permissions
-                binding.profileImage.setImageURI(Uri.parse(Prof_IMG_FILE!!.path))
+                binding.profileImg.setImageURI(Uri.parse(Prof_IMG_FILE!!.path))
             } else if (resultCode == ImagePicker.RESULT_ERROR) {
                 Toast.makeText(requireContext(), ImagePicker.getError(data), Toast.LENGTH_SHORT)
                     .show()
@@ -814,9 +805,7 @@ class Fill_Profile : Fragment() {
                 Toast.makeText(requireContext(), "Task Cancelled", Toast.LENGTH_SHORT).show()
 
             }
-        }
-//
-        else if (is_ID_Proof_Dialog_Active) {
+        } else if (is_ID_Proof_Dialog_Active) {
             if (resultCode == Activity.RESULT_OK) {
 //                    ID_File = GetFileFromUriUsingBufferReader().getImageFile(requireContext(), data!!.data)
 //                  Toast.makeText(context, " " + data!!.data, Toast.LENGTH_SHORT).show()
@@ -827,11 +816,11 @@ class Fill_Profile : Fragment() {
 //                    val uriString = uri.toString()
 //                ID_File = File(data?.getData().toString());
 //                if (ID_File == null)
-                    ID_File =
-                        GetFileFromUriUsingBufferReader().getImageFile(
-                            requireContext().applicationContext,
-                            data?.data
-                        )
+                ID_File =
+                    GetFileFromUriUsingBufferReader().getImageFile(
+                        requireContext().applicationContext,
+                        data?.data
+                    )
 //                    var displayName: String? = null
 //
 //                    Log.d(TAG, "onActivityResult: " + uriString)
@@ -902,10 +891,10 @@ class Fill_Profile : Fragment() {
 //                if (License_File == null)
 //                    Log.d("aksjdhasd", License_File!!.path)
 ////                    Log.d("aksjdhasd",new Docuuuu().getFile(this,uri).getPath());
-                    License_File = GetFileFromUriUsingBufferReader().getImageFile(
-                        requireContext().applicationContext,
-                        data?.data
-                    )
+                License_File = GetFileFromUriUsingBufferReader().getImageFile(
+                    requireContext().applicationContext,
+                    data?.data
+                )
 //
 ////                Toast.makeText(context, ""+ License_File!!.name +" :-> "+License_File!!.path, Toast.LENGTH_SHORT).show()
 //                    //                    Log.d("aksjdhasd",new Docuuuu().getFile(this,uri).getPath());
@@ -1021,11 +1010,11 @@ class Fill_Profile : Fragment() {
 //                        requireContext().applicationContext,
 //                        data?.data
 //                    )
-                    Cancel_Check_File =
-                        GetFileFromUriUsingBufferReader().getImageFile(
-                            requireContext().applicationContext,
-                            data?.data
-                        )
+                Cancel_Check_File =
+                    GetFileFromUriUsingBufferReader().getImageFile(
+                        requireContext().applicationContext,
+                        data?.data
+                    )
 ////                 uploadPdf(GetFileFromUriUsingBufferReader().getFile(this, uri!!))
 
                 binding.cancelCheck.text = Cancel_Check_File?.name.toString()
