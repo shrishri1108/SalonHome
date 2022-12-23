@@ -70,14 +70,14 @@ object LoginAccountRepository {
                 response: Response<Categories_response>
             ) {
                 if(response.isSuccessful) {
-                    Log.d("categoryhit","onResponse: Success")
+                    Log.d("categoryhit333","onResponse: Success")
                     category.value = response.body()
 
                 }
             }
 
             override fun onFailure(call: Call<Categories_response>, t: Throwable) {
-                Log.d("categoryhit", "onFailure: "+ t.toString())
+                Log.d("categoryhit333", "onFailure: "+ t.toString())
             }
 
         })

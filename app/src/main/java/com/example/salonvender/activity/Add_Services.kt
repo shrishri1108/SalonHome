@@ -20,7 +20,7 @@ import com.example.salonvender.singalton_object.PrefManager
 class Add_Services : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     lateinit var viewModel: LoginViewModel
     val categoryList =
-        arrayOf("Select Category", "Hair Coloring", "Hair Wash", "Shaving", "Skin Care", "Hair Dryer")
+        ArrayList<String>()
     lateinit var addServicesBinding: ActivityAddServicesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,14 +42,14 @@ class Add_Services : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         // Set Adapter to Spinner
         addServicesBinding.categorySpinner.setAdapter(aa)
-
+        categoryList.add("Select Category")
 
         viewModel.getCategory(PrefManager.getInstance(App.getInstance())!!.userDetail.token).observe(this, Observer {
             if(it.result) {
                 Log.d("categoryhitres", "onCreate: Successful ")
                 for( category_single in it.categories) {
                     if(category_single != null) {
-//                        categoryList.
+                        categoryList.add( category_single.name)
                     }
                 }
             }
