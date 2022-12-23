@@ -2,6 +2,7 @@ package com.example.salonvender.`interface`
 
 import com.example.salonvender.Data_Class.Fill_Profile
 import com.example.salonvender.Data_Class.LoginOtpData_class
+import com.example.salonvender.model.Categories_response
 import com.example.salonvender.model.LoginAccountData
 
 import okhttp3.MultipartBody
@@ -35,6 +36,10 @@ interface ApiInterface {
                   @Field("account_no") account_no: String,
                   @Field("ifsc_code") ifsc_code: String,
                   ):Call<Fill_Profile>*/
+
+    @GET("saloon/api/categories")
+    fun getAllCategory(@Body data:String ): Call<Categories_response>
+
 
 
     @Multipart

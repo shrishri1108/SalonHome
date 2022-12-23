@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.salonvender.Data_Class.Fill_Profile
 import com.example.salonvender.Data_Class.LoginOtpData_class
+import com.example.salonvender.model.Categories_response
 import com.example.salonvender.model.LoginAccountData
 import okhttp3.MultipartBody
 
@@ -18,6 +19,7 @@ object LoginAccountRepository {
     private var sendOtp = MutableLiveData<LoginAccountData>()
     private var recieveOtp = MutableLiveData<LoginOtpData_class>()
     private var upload = MutableLiveData<Fill_Profile>()
+    private var category = MutableLiveData<Categories_response>()
 
 
     fun sendAllOtp(hashmap: HashMap<String, String>): MutableLiveData<LoginAccountData> {
@@ -60,6 +62,27 @@ object LoginAccountRepository {
         return recieveOtp
     }
 
+    fun getAllCategoryFromRepo(token :String): MutableLiveData<Categories_response> {
+        val call = RestClient.inst.mRestService!!.getAllCategory(token)
+        call.enqueue(object : retrofit2.Callback<Categories_response> {
+            override fun onResponse(
+                call: Call<Categories_response>,
+                response: Response<Categories_response>
+            ) {
+                if(response.isSuccessful) {
+                    Log.d("categoryhit","onResponse: Success")
+                    category.value = response.body()
+
+                }
+            }
+
+            override fun onFailure(call: Call<Categories_response>, t: Throwable) {
+                Log.d("categoryhit", "onFailure: "+ t.toString())
+            }
+
+        })
+        return category
+    }
     /*fun upload(hashmap: HashMap<String, String>): MutableLiveData<Fill_Profile> {
         val call = RestClient.inst.mRestService!!.upload(
             hashmap.get("email").toString(),

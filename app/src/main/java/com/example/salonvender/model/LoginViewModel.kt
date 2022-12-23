@@ -10,6 +10,7 @@ import okhttp3.RequestBody
 import retrofit2.http.Part
 
 class LoginViewModel : ViewModel() {
+    private var categories: MutableLiveData<Categories_response>? = null
     private var sendOtp: MutableLiveData<LoginAccountData>? = null
     private var recieveOtp: MutableLiveData<LoginOtpData_class>? = null
     private var upload: MutableLiveData<Fill_Profile>? = null
@@ -25,6 +26,10 @@ class LoginViewModel : ViewModel() {
     }
 
 
+    fun getCategory( token: String) : LiveData<Categories_response> {
+        categories = LoginAccountRepository.getAllCategoryFromRepo(token)
+        return categories!!
+    }
     fun upload(
         @Part("email") email: RequestBody,
         @Part("name") name: RequestBody,

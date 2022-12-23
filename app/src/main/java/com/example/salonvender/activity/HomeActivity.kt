@@ -20,7 +20,7 @@ class HomeActivity : AppCompatActivity() {
         val fgTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         fgTransaction.add(R.id.container, Create_your_Account())
         fgTransaction.commit()
-
+//
 //        val fragment = Create_your_Account()
 //
 //        supportFragmentManager.beginTransaction().apply {

@@ -605,7 +605,7 @@ class Fill_Profile : Fragment() {
 //                getRequestBody("7706064510"),
                 getRequestBody(binding.Gender.text.toString()),
                 getRequestBody(binding.dob.text.toString()),
-                getRequestBody(if(binding.salonMain.text.toString().equals("Door Buddy"))"Freelancer" else "salon"),
+                getRequestBody(if(binding.salonMain.text.toString().equals("Door Buddy"))"freelancer" else "salon"),
 //                getRequestBody("salon"),
                 getRequestBody(binding.BankName.text.toString()),
 //                cancel_check_part_val,

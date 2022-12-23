@@ -1,48 +1,69 @@
 package com.example.salonvender.activity
 
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import com.example.salonvender.R
 import com.example.salonvender.databinding.ActivityAddServicesBinding
+import com.example.salonvender.model.LoginViewModel
+import com.example.salonvender.singalton_object.PrefManager
 
-class Add_Services : AppCompatActivity()   {
+class Add_Services : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+    lateinit var viewModel: LoginViewModel
     val categoryList =
-        arrayOf("Hair Cut", "Hair Coloring", "Hair Wash", "Shaving", "Skin Care", "Hair Dryer")
+        arrayOf("Select Category", "Hair Coloring", "Hair Wash", "Shaving", "Skin Care", "Hair Dryer")
     lateinit var addServicesBinding: ActivityAddServicesBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         addServicesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_services)
-        addServicesBinding= DataBindingUtil.setContentView(this, R.layout.activity_add_services)
+        addServicesBinding = DataBindingUtil.setContentView(this, R.layout.activity_add_services)
         this.applicationContext.applicationContext
 
 
 //        addServicesBinding.categorySpinner.setOnItemSelectedListener(this@Add_Services);
 
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+
+//
+        addServicesBinding.categorySpinner.setOnItemSelectedListener(this)
+
+        // Create an ArrayAdapter using a simple spinner layout and languages array
         val aa = ArrayAdapter(this, android.R.layout.simple_spinner_item, categoryList)
+        // Set layout to use when the list of choices appear
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        // Set Adapter to Spinner
+        addServicesBinding.categorySpinner.setAdapter(aa)
 
 
+        viewModel.getCategory(PrefManager.getInstance.userDetail.token)
 
 //        addServicesBinding.switchGender.textOn="Female"
 //        addServicesBinding.switchGender.textOff="Male"
 //        addServicesBinding.switchGender.setBackgroundColor(Color.BLUE)
-          addServicesBinding.switchGender.setOnClickListener(View.OnClickListener {
-
-          })
-        if(addServicesBinding.switchGender.isChecked) {
-//            addServicesBinding.switchGender.setBackgroundColor(Color.MAGENTA)
-            addServicesBinding.switchGender.textOn= "Male"
-
-        }
-        else {
-//            addServicesBinding.switchGender.setBackgroundColor(Color.BLUE)
-        addServicesBinding.switchGender.textOff= "Female"
-        }
-        addServicesBinding.mrpPrice.paintFlags= View.INVISIBLE
-        addServicesBinding.etOfferPrice.paintFlags= View.INVISIBLE
-
+//          addServicesBinding.switchGender.setOnClickListener(View.OnClickListener {
+//
+//          })
+//        addServicesBinding.categoryCard.setOnClickListener {
+//
+//        }
+        //        if(addServicesBinding.switchGender.isChecked) {
+////            addServicesBinding.switchGender.setBackgroundColor(Color.MAGENTA)
+//            addServicesBinding.switchGender.textOn= "Male"
+//
+//        }
+//        else {
+////            addServicesBinding.switchGender.setBackgroundColor(Color.BLUE)
+//        addServicesBinding.switchGender.textOff= "Female"
+//        }
+//        addServicesBinding.mrpPrice.paintFlags= View.INVISIBLE
+//        addServicesBinding.etOfferPrice.paintFlags= View.INVISIBLE
+//
 //        addServicesBinding.switchLays.setOnClickListener {
 //
 //
@@ -136,5 +157,13 @@ class Add_Services : AppCompatActivity()   {
 //
 //        }
 
+    }
+
+    override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+        addServicesBinding.categorySpinner.isSelected = true
+    }
+
+    override fun onNothingSelected(p0: AdapterView<*>?) {
+        TODO("Not yet implemented")
     }
 }
