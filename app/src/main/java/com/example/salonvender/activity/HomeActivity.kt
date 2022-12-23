@@ -20,14 +20,14 @@ class HomeActivity : AppCompatActivity() {
         val fgTransaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         fgTransaction.add(R.id.container, Create_your_Account())
         fgTransaction.commit()
-//
-//        val fragment = Create_your_Account()
-//
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(R.id.container, fragment).commit()
-//        }
 
-       this.startActivity(Intent(this@HomeActivity, Add_Services::class.java))
+        val fragment = Create_your_Account()
+
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.container, fragment).commit()
+        }
+
+//       this.startActivity(Intent(this@HomeActivity, Add_Services::class.java))
 
     }
 }

@@ -2,11 +2,14 @@ package com.example.salonvender.activity
 
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.salonvender.R
@@ -41,7 +44,19 @@ class Add_Services : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         addServicesBinding.categorySpinner.setAdapter(aa)
 
 
-        viewModel.getCategory(PrefManager.getInstance(App.getInstance())!!.userDetail.token)
+        viewModel.getCategory(PrefManager.getInstance(App.getInstance())!!.userDetail.token).observe(this, Observer {
+            if(it.result) {
+                Log.d("categoryhitres", "onCreate: Successful ")
+                for( category_single in it.categories) {
+                    if(category_single != null) {
+//                        categoryList.
+                    }
+                }
+            }
+            else {
+                Toast.makeText(applicationContext, ""+it.message, Toast.LENGTH_SHORT).show()
+            }
+        })
 
 
 //        addServicesBinding.switchGender.textOn="Female"
