@@ -41,7 +41,8 @@ class Add_Services : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         addServicesBinding.categorySpinner.setAdapter(aa)
 
 
-        viewModel.getCategory(PrefManager.getInstance.userDetail.token)
+        viewModel.getCategory(PrefManager.getInstance(App.getInstance())!!.userDetail.token)
+
 
 //        addServicesBinding.switchGender.textOn="Female"
 //        addServicesBinding.switchGender.textOff="Male"
